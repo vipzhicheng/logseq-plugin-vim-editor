@@ -1,0 +1,89 @@
+.cm-s-markdown.CodeMirror {
+  background: #1d262f;
+  color: #4a5f78;
+  font-size: 1.5em;
+}
+.cm-s-markdown div.CodeMirror-selected {
+  background: #405368 !important;
+}
+.cm-s-markdown .CodeMirror-gutters {
+  background: #1d262f;
+  border-right: 0px;
+}
+.cm-s-markdown .CodeMirror-linenumber {
+  color: #405368;
+}
+
+.cm-s-markdown div.CodeMirror-cursor {
+	border-left: 3px solid #F8F8F8;
+}
+
+.cm-s-markdown span.cm-atom,
+.cm-s-markdown span.cm-number,
+.cm-s-markdown span.cm-keyword,
+.cm-s-markdown span.cm-variable,
+.cm-s-markdown span.cm-attribute,
+.cm-s-markdown span.cm-quote,
+.cm-s-markdown span.cm-hr,
+.cm-s-markdown span.cm-link {
+  color: #47ebb4;
+}
+
+.cm-s-markdown span.cm-property {
+  color: #57718e;
+}
+.cm-s-markdown span.cm-punctuation,
+.cm-s-markdown span.cm-unit,
+.cm-s-markdown span.cm-negative {
+  color: #0aa370;
+}
+.cm-s-markdown span.cm-string {
+  color: #14e19d;
+}
+.cm-s-markdown span.cm-operator {
+  color: #0fc78a;
+}
+.cm-s-markdown span.cm-positive {
+  color: #004a9e;
+}
+
+.cm-s-markdown span.cm-variable-2,
+.cm-s-markdown span.cm-variable-3,
+.cm-s-markdown span.cm-string-2,
+.cm-s-markdown span.cm-url {
+  color: #1757a1;
+}
+.cm-s-markdown span.cm-def,
+.cm-s-markdown span.cm-tag,
+.cm-s-markdown span.cm-builtin,
+.cm-s-markdown span.cm-qualifier,
+.cm-s-markdown span.cm-em {
+  color: #ebf4ff;
+}
+.cm-s-markdown span.cm-bracket,
+.cm-s-markdown span.cm-comment {
+  color: #4a5f78;
+}
+
+/* using #f00 red for errors, don't think any of the colorscheme variables will stand out enough, ... maybe by giving it a background-color ... */
+.cm-s-markdown span.cm-error,
+.cm-s-markdown span.cm-invalidchar {
+  color: #f00;
+}
+
+.cm-s-markdown span.cm-header {
+  font-weight: normal;
+}
+.cm-s-markdown .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: #ebf4ff !important;
+}
+
+.cm-s-markdown pre.CodeMirror-line {
+  color: #ebf4ff;
+}
+
+.cm-s-markdown span.cm-header {
+  color: yellow;
+  font-weight: bold;
+}
