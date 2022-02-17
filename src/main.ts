@@ -30,8 +30,8 @@ function main () {
   logseq.App.registerUIItem('toolbar', {
     key: 'open-vim-editor',
     template: `
-      <a class="button" data-on-click="openModel">
-        aa
+      <a class="button" data-on-click="openModel" style="font-size: 18px">
+        V
       </a>
     `,
   })
