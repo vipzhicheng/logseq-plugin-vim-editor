@@ -7,7 +7,7 @@
   background: #405368 !important;
 }
 .cm-s-markdown .CodeMirror-gutters {
-  background: #1d262f;
+  background: #293643;
   border-right: 0px;
 }
 .cm-s-markdown .CodeMirror-linenumber {
@@ -15,7 +15,7 @@
 }
 
 .cm-s-markdown div.CodeMirror-cursor {
-	border-left: 3px solid #F8F8F8;
+  border-left: 3px solid #f8f8f8;
 }
 
 .cm-s-markdown span.cm-atom,

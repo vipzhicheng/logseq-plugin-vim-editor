@@ -20,7 +20,7 @@
     "vue-tsc": "^0.31.2"
   },
   "dependencies": {
-    "@logseq/libs": "^0.0.1-alpha.34",
+    "@logseq/libs": "^0.0.1-alpha.35",
     "codemirror": "^5.65.1",
     "vue": "^3.2.30"
   },
