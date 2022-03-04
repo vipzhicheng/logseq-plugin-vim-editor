@@ -36,8 +36,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          codemirror: ["codemirror"],
-          naive: ["naive-ui"],
+          vendor: ["codemirror", "naive-ui"],
         },
       },
     },

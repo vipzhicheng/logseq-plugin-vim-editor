@@ -6,6 +6,7 @@ specifiers:
   '@types/node': ^17.0.21
   '@vitejs/plugin-vue': ^2.2.4
   autoprefixer: ^10.4.2
+  buffer: ^6.0.3
   codemirror: ^5.65.2
   naive-ui: ^2.26.0
   pinia: ^2.0.11
@@ -32,6 +33,7 @@ devDependencies:
   '@types/node': 17.0.21
   '@vitejs/plugin-vue': 2.2.4_vite@2.8.6+vue@3.2.31
   autoprefixer: 10.4.2_postcss@8.4.7
+  buffer: 6.0.3
   postcss: 8.4.7
   tailwindcss: 3.0.23_autoprefixer@10.4.2
   typescript: 4.6.2
@@ -475,6 +477,10 @@ packages:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
 
+  /base64-js/1.5.1:
+    resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: true
+
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
@@ -504,6 +510,13 @@ packages:
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
+    dev: true
+
+  /buffer/6.0.3:
+    resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
+    dependencies:
+      base64-js: 1.5.1
+      ieee754: 1.2.1
     dev: true
 
   /call-bind/1.0.2:
@@ -1088,6 +1101,10 @@ packages:
       domhandler: 4.3.0
       domutils: 2.8.0
       entities: 3.0.1
+    dev: true
+
+  /ieee754/1.2.1:
+    resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
 
   /import-fresh/3.3.0:

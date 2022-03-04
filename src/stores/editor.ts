@@ -26,6 +26,22 @@ import "codemirror/addon/edit/continuelist";
 
 import "codemirror/keymap/vim.js";
 
+// This is for transform block id to invisible string to make multiple mode separator more unique.
+const encode = (text) => {
+  const textArray = Array.from(text);
+  const binarify = textArray.map((c: string) => c.codePointAt(0).toString(2));
+  const encoded = binarify.map(c => Array.from(c).map(b => b === '1' ? '‍' : '‌').join('')).join('​');
+  return encoded;
+}
+
+// This is for checking if user change the block seprator, if so the changes of that block will not be saved back to Logseq.
+const decode = (encoded) => {
+  const split = encoded.split('​');
+  const binary = split.map(c => Array.from(c).map(z => z === '‍' ? '1' : '0').join(''));
+  const decoded = binary.map(b => String.fromCodePoint(parseInt(b, 2))).join('');
+  return decoded
+}
+
 export const useEditorStore = defineStore("editor", {
   state: () => ({
     cm: null as EditorFromTextArea | null,
@@ -83,12 +99,12 @@ export const useEditorStore = defineStore("editor", {
               page = await logseq.Editor.getPage(blocks[0].page.id);
             }
             titleBarStore.setTitle(page.name);
-            titleBarStore.setMode("multiple");
-            console.log(blocks);
+            titleBarStore.setMode("Multiple");
 
             const value = blocks
               .map((b) => {
-                return `> ((${b.uuid})):\n${b.content}`;
+                const encoded = encode(b.uuid);
+                return `> ((${b.uuid}))${encoded}:\n${b.content}`;
               })
               .join("\n");
             cm.setValue(value);
@@ -103,7 +119,7 @@ export const useEditorStore = defineStore("editor", {
               }
 
               titleBarStore.setTitle(page.name);
-              titleBarStore.setMode("single");
+              titleBarStore.setMode("Single");
             }
           }
           cm.refresh();
@@ -118,7 +134,7 @@ export const useEditorStore = defineStore("editor", {
     async save() {
       if (this.cm) {
         const titleBarStore = useTitleBarStore();
-        if (titleBarStore.mode === "single") {
+        if (titleBarStore.mode === "Single") {
           const block = await logseq.Editor.getCurrentBlock();
           if (block) {
             await logseq.Editor.updateBlock(block.uuid, this.cm.getValue());
@@ -128,17 +144,18 @@ export const useEditorStore = defineStore("editor", {
           });
         } else {
           const value = this.cm.getValue();
-          console.log("value", value);
 
           const splited = value.split(
-            /> \(\(([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\)\):\n/gim
+            /^> \(\(([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\)\)([\u200b-\u200f\uFEFF\u202a-\u202e]+):\n/gim
           );
 
-          console.log("splited", splited);
-
-          for (let i = 1; i < splited.length; i += 2) {
+          for (let i = 1; i < splited.length; i += 3) {
             const uuid = splited[i];
-            const content = splited[i + 1];
+            const encoded = splited[i + 1]
+            if (uuid !== decode(encoded)) {
+              continue
+            }
+            const content = splited[i + 2];
             await logseq.Editor.updateBlock(uuid, content);
           }
 
