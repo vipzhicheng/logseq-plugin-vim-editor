@@ -1,8 +1,10 @@
 import "@logseq/libs";
+import { createPinia } from "pinia";
 import { createApp } from "vue";
 import App from "./App.vue";
 
 import "./style.css";
+import "vfonts/FiraCode.css";
 
 const model = {
   openModel() {
@@ -13,17 +15,6 @@ const model = {
 };
 
 /**
- * user model
- */
-function createModel() {
-  return {
-    openModel() {
-      logseq.showMainUI();
-    },
-  };
-}
-
-/**
  * app entry
  */
 function main() {
@@ -32,20 +23,12 @@ function main() {
     zIndex: 11,
   });
 
-  // external btns
-  // logseq.App.registerUIItem("toolbar", {
-  //   key: "open-vim-editor",
-  //   template: `
-  //     <a class="button" data-on-click="openModel" style="font-size: 18px">
-  //       V
-  //     </a>
-  //   `,
-  // });
-
   logseq.provideModel(model);
 
-  // main UI
-  createApp(App).mount("#app");
+  // vue init
+  const app = createApp(App);
+  app.use(createPinia());
+  app.mount("#app");
 
   const handleTriggerModal = async () => {
     const block = await logseq.Editor.getCurrentBlock();
