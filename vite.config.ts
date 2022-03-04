@@ -29,14 +29,15 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
     target: "esnext",
-    minify: false,
+    minify: "esbuild",
     chunkSizeWarningLimit: 1024,
     rollupOptions: {
       output: {
         manualChunks: {
           codemirror: ["codemirror"],
+          naive: ["naive-ui"],
         },
       },
     },

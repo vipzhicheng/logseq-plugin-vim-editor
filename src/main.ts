@@ -37,11 +37,11 @@ function main() {
       return;
     }
 
-    const blocks = await logseq.Editor.getSelectedBlocks();
-    if (blocks && blocks?.length > 1) {
-      logseq.App.showMsg("Please select only one block");
-      return;
-    }
+    // const blocks = await logseq.Editor.getSelectedBlocks();
+    // if (blocks && blocks?.length > 1) {
+    //   logseq.App.showMsg("Please select only one block");
+    //   return;
+    // }
 
     model.openModel();
   };

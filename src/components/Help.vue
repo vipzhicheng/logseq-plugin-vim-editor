@@ -6,18 +6,18 @@ const helpStore = useHelpStore();
 <template>
   <n-modal
     v-model:show="helpStore.visible"
-    class="custom-card"
-    preset="card"
+    :preset="helpStore.preset"
     :style="helpStore.bodyStyle"
-    size="huge"
+    :size="helpStore.size"
     :bordered="helpStore.bordered"
     :segmented="helpStore.segmented"
-    transform-origin="center"
+    :transform-origin="helpStore.transformOrigin"
     :auto-focus="false"
   >
     <template #header>
       <div class="font-bold">
-        Logseq VIM Editor <span class="text-gray-500 text-xs mr-2">v0.0.1</span>
+        Logseq VIM Editor
+        <span class="text-gray-500 text-xs mr-2">v{{ helpStore.version }}</span>
 
         <a
           href="https://github.com/vipzhicheng/logseq-plugin-vim-editor"
