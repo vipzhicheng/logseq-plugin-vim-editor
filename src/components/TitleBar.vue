@@ -19,12 +19,22 @@ const handleQuit = () => {
     class="flex-none px-4 h-12 text-gray-300 flex justify-between items-center bg-[#1d262f] text-sm border-b border-gray-600"
   >
     <div class="text-gray-600 inline-block"></div>
-    <div class="inline-block">
+    <div class="">
+      <span class="text-gray-600">Logseq VIM Editor / </span>
       {{ titleBarStore.title }}
-      <span class="text-gray-600">[{{ titleBarStore.mode }}]</span>
+      <span class="text-gray-600">
+        / [{{
+          titleBarStore.mode === "Single" ? "Single block" : "Multiple blocks"
+        }}]</span
+      >
     </div>
-    <div class="inline-block">
-      <n-icon size="20" @click="handleSave" class="cursor-pointer">
+    <div class="flex gap-1">
+      <n-icon
+        size="20"
+        @click="handleSave"
+        class="cursor-pointer"
+        title="Save and quit"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -38,7 +48,7 @@ const handleQuit = () => {
           />
         </svg>
       </n-icon>
-      <n-icon size="20" @click="handleQuit" class="cursor-pointer">
+      <n-icon size="20" @click="handleQuit" class="cursor-pointer" title="Quit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"

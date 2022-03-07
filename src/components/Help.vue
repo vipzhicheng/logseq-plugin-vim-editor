@@ -46,9 +46,9 @@ const helpStore = useHelpStore();
       </p>
       <p>
         <span class="text-red-500 font-bold">Note</span>: If you use multiple
-        blocks editing mode, do not change block ids on the left, and the order
+        blocks editing mode, do not change block ids on the above, and the order
         maybe different, and hierarchy of blocks will be flattened. You may not
-        need to choose too many blocks to edit.
+        need to choose too many blocks to edit at a time.
       </p>
       <p class="text-gray-400 text-sm">
         If you like this plugin and would like to support me to keep working on

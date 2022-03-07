@@ -9,14 +9,14 @@ import * as CodeMirror from "codemirror";
 import "codemirror/lib/codemirror.css";
 
 import "codemirror/addon/dialog/dialog.css";
-import "codemirror/theme/material.css";
-import "codemirror/theme/solarized.css";
+// import "codemirror/theme/material.css";
+// import "codemirror/theme/solarized.css";
 
 import "@/theme/base2tone-sea-dark.css";
 
-import "codemirror/mode/javascript/javascript";
-import "codemirror/mode/htmlmixed/htmlmixed";
-import "codemirror/mode/coffeescript/coffeescript";
+// import "codemirror/mode/javascript/javascript";
+// import "codemirror/mode/htmlmixed/htmlmixed";
+// import "codemirror/mode/coffeescript/coffeescript";
 import "codemirror/mode/markdown/markdown";
 
 import "codemirror/addon/dialog/dialog.js";
@@ -30,17 +30,29 @@ import "codemirror/keymap/vim.js";
 const encode = (text) => {
   const textArray = Array.from(text);
   const binarify = textArray.map((c: string) => c.codePointAt(0).toString(2));
-  const encoded = binarify.map(c => Array.from(c).map(b => b === '1' ? '‍' : '‌').join('')).join('​');
+  const encoded = binarify
+    .map((c) =>
+      Array.from(c)
+        .map((b) => (b === "1" ? "‍" : "‌"))
+        .join("")
+    )
+    .join("​");
   return encoded;
-}
+};
 
 // This is for checking if user change the block seprator, if so the changes of that block will not be saved back to Logseq.
 const decode = (encoded) => {
-  const split = encoded.split('​');
-  const binary = split.map(c => Array.from(c).map(z => z === '‍' ? '1' : '0').join(''));
-  const decoded = binary.map(b => String.fromCodePoint(parseInt(b, 2))).join('');
-  return decoded
-}
+  const split = encoded.split("​");
+  const binary = split.map((c) =>
+    Array.from(c)
+      .map((z) => (z === "‍" ? "1" : "0"))
+      .join("")
+  );
+  const decoded = binary
+    .map((b) => String.fromCodePoint(parseInt(b, 2)))
+    .join("");
+  return decoded;
+};
 
 export const useEditorStore = defineStore("editor", {
   state: () => ({
@@ -56,6 +68,9 @@ export const useEditorStore = defineStore("editor", {
       CodeMirror.commands.save = this.save;
 
       // @ts-ignore
+      CodeMirror.Vim.defineEx("wq", "wq", this.save);
+
+      // @ts-ignore
       CodeMirror.Vim.defineEx("quit", "q", this.quit);
 
       // @ts-ignore
@@ -64,8 +79,8 @@ export const useEditorStore = defineStore("editor", {
       const cm = CodeMirror.fromTextArea(editor as HTMLTextAreaElement, {
         mode: "markdown",
         theme: "markdown",
-        // @ts-ignore
-        minimap: true,
+        // // @ts-ignore
+        // minimap: true,
         lineNumbers: true,
         lineWrapping: true,
         // autofocus: true,
@@ -151,9 +166,9 @@ export const useEditorStore = defineStore("editor", {
 
           for (let i = 1; i < splited.length; i += 3) {
             const uuid = splited[i];
-            const encoded = splited[i + 1]
+            const encoded = splited[i + 1];
             if (uuid !== decode(encoded)) {
-              continue
+              continue;
             }
             const content = splited[i + 2];
             await logseq.Editor.updateBlock(uuid, content);
@@ -163,6 +178,7 @@ export const useEditorStore = defineStore("editor", {
             restoreEditingCursor: true,
           });
         }
+        logseq.App.showMsg("Saved back to Logseq!");
       }
     },
 
@@ -170,6 +186,7 @@ export const useEditorStore = defineStore("editor", {
       logseq.hideMainUI({
         restoreEditingCursor: true,
       });
+      logseq.App.showMsg("Quit without saving!");
     },
 
     help() {
