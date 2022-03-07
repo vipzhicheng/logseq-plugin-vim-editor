@@ -1,6 +1,6 @@
 {
   "name": "logseq-plugin-vim-editor",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.html",
   "scripts": {
@@ -33,6 +33,7 @@
   },
   "logseq": {
     "icon": "./icon.png",
-    "id": "logseq-plugin-vim-editor"
+    "id": "logseq-plugin-vim-editor",
+    "title": "Logseq VIM Editor"
   }
 }

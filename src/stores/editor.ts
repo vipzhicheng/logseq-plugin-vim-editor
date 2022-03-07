@@ -100,6 +100,13 @@ export const useEditorStore = defineStore("editor", {
         },
       });
 
+      cm.addKeyMap({
+        "Ctrl-]": () => {
+          // @ts-ignore
+          CodeMirror.Vim.exitInsertMode(cm);
+        },
+      });
+
       logseq.on("ui:visible:changed", async (visible) => {
         if (!visible) {
           return;
