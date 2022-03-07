@@ -16,9 +16,9 @@ const handleQuit = () => {
 
 <template>
   <div
-    class="flex-none px-2 h-8 text-gray-300 flex justify-between items-center bg-[#1d262f] text-sm border-b border-gray-600"
+    class="flex-none px-4 h-12 text-gray-300 flex justify-between items-center bg-[#1d262f] text-sm border-b border-gray-600"
   >
-    <div class="text-gray-600 inline-block">Logseq VIM Editor</div>
+    <div class="text-gray-600 inline-block"></div>
     <div class="inline-block">
       {{ titleBarStore.title }}
       <span class="text-gray-600">[{{ titleBarStore.mode }}]</span>

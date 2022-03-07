@@ -28,7 +28,6 @@
     "codemirror": "^5.65.2",
     "naive-ui": "^2.26.0",
     "pinia": "^2.0.11",
-    "vfonts": "^0.0.3",
     "vue": "^3.2.31"
   },
   "logseq": {
