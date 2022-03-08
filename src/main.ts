@@ -5,6 +5,38 @@ import App from "./App.vue";
 
 import "./style.css";
 
+const settingsVersion = "v1";
+export const defaultSettings = {
+  keyBindings: {
+    openVimEditor: "mod+shift+e",
+  },
+  settingsVersion,
+  disabled: false,
+};
+
+export type DefaultSettingsType = typeof defaultSettings;
+
+const initSettings = () => {
+  let settings = logseq.settings;
+
+  const shouldUpdateSettings =
+    !settings || settings.settingsVersion != defaultSettings.settingsVersion;
+
+  if (shouldUpdateSettings) {
+    settings = defaultSettings;
+    logseq.updateSettings(settings);
+  }
+};
+
+const getSettings = (
+  key: string | undefined,
+  defaultValue: any = undefined
+) => {
+  const settings = logseq.settings;
+  const merged = Object.assign(defaultSettings, settings);
+  return key ? (merged[key] ? merged[key] : defaultValue) : merged;
+};
+
 const model = {
   openModel() {
     logseq.showMainUI({
@@ -17,6 +49,8 @@ const model = {
  * app entry
  */
 function main() {
+  initSettings();
+  const keyBindings = getSettings("keyBindings");
   logseq.setMainUIInlineStyle({
     position: "fixed",
     zIndex: 11,
@@ -52,7 +86,7 @@ function main() {
       label: "VIM Editor",
       keybinding: {
         mode: "global",
-        binding: "mod+shift+e",
+        binding: keyBindings.openVimEditor,
       },
     },
     handleTriggerModal
