@@ -1,5 +1,7 @@
 # Logseq VIM Editor
 
+[![Github All Releases](https://img.shields.io/github/downloads/vipzhicheng/logseq-plugin-vim-editor/total.svg)](https://github.com/vipzhicheng-starter/logseq-plugin-vim-editor/releases)
+
 A VIM-like block editor for Logseq, if you are familiar with VIM, it will bring VIM level performance boost when you editing.
 
 ![Screenshot](./screencast.gif)
