@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "@logseq/libs": "^0.0.1-alpha.35",
+    "@susisu/mte-kernel": "^2.1.1",
+    "@tgrosinger/md-advanced-tables": "^3.8.0",
     "codemirror": "^5.65.2",
     "lorem-ipsum": "^2.0.4",
     "naive-ui": "^2.26.0",

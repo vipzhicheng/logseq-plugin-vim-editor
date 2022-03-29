@@ -6,11 +6,11 @@ const titleBarStore = useTitleBarStore();
 const editorStore = useEditorStore();
 
 const handleSave = () => {
-  editorStore.save();
+  editorStore.saveAndQuit();
 };
 
 const handleQuit = () => {
-  editorStore.quit();
+  editorStore.quitWithoutSaving();
 };
 </script>
 
