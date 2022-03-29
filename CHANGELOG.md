@@ -2,7 +2,7 @@
 
 ## v0.0.3
 
-- feat: integrated a nick markdown table editor into vim editor
+- feat: integrated a nice markdown table editor into vim editor
 
 ## v0.0.2
 
