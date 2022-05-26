@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.0.4
+
+- infra: upgrade deps
+
 ## v0.0.3
 
 - feat: integrated a nice markdown table editor into vim editor
