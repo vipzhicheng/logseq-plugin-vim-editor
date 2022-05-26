@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 specifiers:
   '@logseq/libs': ^0.0.6
-  '@susisu/mte-kernel': ^2.1.1
   '@tgrosinger/md-advanced-tables': ^3.8.0
   '@types/codemirror': ^5.60.5
   '@types/node': ^17.0.35
@@ -24,7 +23,6 @@ specifiers:
 
 dependencies:
   '@logseq/libs': 0.0.6
-  '@susisu/mte-kernel': 2.1.1
   '@tgrosinger/md-advanced-tables': 3.8.0
   codemirror: 5.65.4
   lorem-ipsum: 2.0.4
@@ -124,12 +122,6 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
-
-  /@susisu/mte-kernel/2.1.1:
-    resolution: {integrity: sha512-i2lucPD0BOUNIY6P0MGIUbJ/piV8iNzwB8QU1fdkRLls85rq8NJa75oeZVWo2PLrUWjN64+3oD85kZFsx3ovyA==}
-    dependencies:
-      meaw: 5.0.0
-    dev: false
 
   /@tgrosinger/md-advanced-tables/3.8.0:
     resolution: {integrity: sha512-xUFR+1GMZrI0QRSMPU7L/R+UOLMAfcxtPzE1PQd7BgF/7QlrxafcTd+YG0czfRZoUYJa+wqa5+dNHvSPklALEA==}
