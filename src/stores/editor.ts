@@ -431,9 +431,6 @@ export const useEditorStore = defineStore("editor", {
           if (block) {
             await logseq.Editor.updateBlock(block.uuid, this.cm.getValue());
           }
-          logseq.hideMainUI({
-            restoreEditingCursor: true,
-          });
         } else {
           const value = this.cm.getValue();
 
@@ -452,6 +449,9 @@ export const useEditorStore = defineStore("editor", {
           }
         }
         logseq.App.showMsg("Saved back to Logseq!");
+        logseq.hideMainUI({
+          restoreEditingCursor: true,
+        });
       }
     },
 

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.0.6
+
+- infra: upgrade deps
+
+## v0.0.5
+
+- infra: upgrade deps
+
 ## v0.0.4
 
 - infra: upgrade deps
